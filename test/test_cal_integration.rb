@@ -1,13 +1,16 @@
-require 'rubygems'
-require 'bundler/setup'
-require "minitest/reporters"
-
-reporter_options = { color: true}
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
-
-require "minitest/autorun"
+require_relative 'helper'
 
 class TestCalIntegration < Minitest::Test
+
+
+  def test_helper_message
+  output = `./cal.rb`
+  expected = <<EOS
+Date not in acceptable format/range.
+EOS
+  assert_equal expected, output
+end
+
 
   def test_month_that_starts_on_sunday
     output = `./cal.rb 01 2012`
@@ -38,7 +41,7 @@ EOS
   end
 
   def test_century_leap_years_divisible_by_400
-    output = `./cal.rb 02 2016`
+    output = `./cal.rb 02 2000`
     expected = <<EOS
   February 2000
 Su Mo Tu We Th Fr Sa
@@ -52,7 +55,7 @@ EOS
   end
 
   def test_century_leap_years_not_divisible_by_400
-    output = `./cal.rb 02 2016`
+    output = `./cal.rb 02 2100`
     expected = <<EOS
   February 2100
 Su Mo Tu We Th Fr Sa
@@ -236,6 +239,22 @@ EOS
     assert_equal expected, output
   end
 
+
+  def test_input_min_date
+    output = `./cal.rb 01 1800`
+    expected = <<EOS
+    January 1800
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+EOS
+    assert_equal expected, output
+  end
+
+
   def test_input_outside_min_date
     output = `./cal.rb 12 1799`
     expected = <<EOS
@@ -244,12 +263,25 @@ EOS
     assert_equal expected, output
   end
 
+  def test_input_max_date
+    output = `./cal.rb 12 3000`
+    expected = <<EOS
+  December 3000
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30 31
+EOS
+    assert_equal expected, output
+ end
+
   def test_input_outside_max_date
     output = `./cal.rb 01 3001`
     expected = <<EOS
 Date not in acceptable format/range.
 EOS
-    assert_equal expected, output
   end
 
   def test_invalid_input
@@ -258,5 +290,4 @@ EOS
 Date not in acceptable format/range.
 EOS
   end
-
 end
