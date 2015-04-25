@@ -1,8 +1,6 @@
 require_relative 'helper'
 
 class TestCalIntegration < Minitest::Test
-
-
   def test_helper_message
   output = `./cal.rb`
   expected = <<EOS
