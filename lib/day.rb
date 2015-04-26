@@ -7,7 +7,6 @@ class Day
   end
 
   def start_day
-
     if month < 3
       @month += 12
       @year -= 1

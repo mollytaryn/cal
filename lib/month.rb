@@ -1,9 +1,12 @@
+require_relative 'day'
+
 class Month
-  attr_reader :month, :year
+  attr_reader :month, :year, :start_day, :month_name, :day
 
   def initialize(month, year)
-    @month = month
+    @month = month.to_i
     @year = year
+    @start_day = Day.new(month, year)
   end
 
   def month_name
@@ -23,25 +26,18 @@ class Month
     month_name[@month]
   end
 
-  def month_length_non_leap_year
-    month_length = {
-      1 => 31,
-      2 => 28,
-      3 => 31,
-      4 => 30,
-      5 => 31,
-      6 => 30,
-      7 => 31,
-      8 => 31,
-      9 => 30,
-      10 => 31,
-      11 => 30,
-      12 => 31
-    }
+  def month_length
+    if @month == 2
+      month_length = 28
+    elsif @month == 4 or @month == 6 or @month == 9 or @month == 11
+      month_length = 30
+    else
+      month_length = 31
+    end
   end
 
   def days
-    days = (1..31)
+    days = (1..month_length)
     arr = days.to_a
     week_1 = arr[0..6].join("  ")
     week_2a = arr[7..8].join("  ")
