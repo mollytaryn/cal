@@ -212,12 +212,12 @@ EOS
     output = `./cal.rb 11 2017`
     expected = <<EOS
     November 2017
- Su Mo Tu We Th Fr Sa
-           1  2  3  4
-  5  6  7  8  9 10 11
- 12 13 14 15 16 17 18
- 19 20 21 22 23 24 25
- 26 27 28 29 30
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30
 EOS
     assert_equal expected, output
   end
@@ -253,14 +253,6 @@ EOS
   end
 
 
-  def test_input_outside_min_date
-    output = `./cal.rb 12 1799`
-    expected = <<EOS
-Date not in acceptable format/range.
-EOS
-    assert_equal expected, output
-  end
-
   def test_input_max_date
     output = `./cal.rb 12 3000`
     expected = <<EOS
@@ -275,17 +267,36 @@ EOS
     assert_equal expected, output
  end
 
+ def test_input_outside_min_date
+   output = `./cal.rb 12 1799`
+   expected = <<EOS
+Date not in acceptable format/range.
+EOS
+   assert_equal expected, output
+ end
+
+
   def test_input_outside_max_date
     output = `./cal.rb 01 3001`
     expected = <<EOS
 Date not in acceptable format/range.
 EOS
+    assert_equal expected, output
   end
 
-  def test_invalid_input
+  def test_invalid_input_month_spelled_out
     output = `./cal.rb April 2014`
     expected = <<EOS
 Date not in acceptable format/range.
 EOS
+    assert_equal expected, output
+  end
+
+  def test_invalid_input_year_before_month
+    output = `./cal.rb 2014 08`
+    expected = <<EOS
+Date not in acceptable format/range.
+EOS
+    assert_equal expected, output
   end
 end
