@@ -27,7 +27,7 @@ EOS
   def test_regular_leap_years
     output = `./cal.rb 02 2016`
     expected = <<EOS
-  February 2016
+   February 2016
 Su Mo Tu We Th Fr Sa
     1  2  3  4  5  6
  7  8  9 10 11 12 13
@@ -41,7 +41,7 @@ EOS
   def test_century_leap_years_divisible_by_400
     output = `./cal.rb 02 2000`
     expected = <<EOS
-  February 2000
+   February 2000
 Su Mo Tu We Th Fr Sa
        1  2  3  4  5
  6  7  8  9 10 11 12
@@ -55,7 +55,7 @@ EOS
   def test_century_leap_years_not_divisible_by_400
     output = `./cal.rb 02 2100`
     expected = <<EOS
-  February 2100
+   February 2100
 Su Mo Tu We Th Fr Sa
     1  2  3  4  5  6
  7  8  9 10 11 12 13
@@ -83,7 +83,7 @@ EOS
   def test_month_length_february
     output = `./cal.rb 02 2017`
     expected = <<EOS
-  February 2017
+   February 2017
 Su Mo Tu We Th Fr Sa
           1  2  3  4
  5  6  7  8  9 10 11
@@ -97,7 +97,7 @@ EOS
   def test_month_length_march
     output = `./cal.rb 03 2017`
     expected = <<EOS
-    March 2017
+     March 2017
 Su Mo Tu We Th Fr Sa
           1  2  3  4
  5  6  7  8  9 10 11
@@ -111,7 +111,7 @@ EOS
   def test_month_length_april
     output = `./cal.rb 04 2017`
     expected = <<EOS
-    April 2017
+     April 2017
 Su Mo Tu We Th Fr Sa
                    1
  2  3  4  5  6  7  8
@@ -126,7 +126,7 @@ EOS
   def test_month_length_may
     output = `./cal.rb 05 2017`
     expected = <<EOS
-    May 2017
+      May 2017
 Su Mo Tu We Th Fr Sa
     1  2  3  4  5  6
  7  8  9 10 11 12 13
@@ -140,7 +140,7 @@ EOS
   def test_month_length_june
     output = `./cal.rb 06 2017`
     expected = <<EOS
-    June 2017
+     June 2017
 Su Mo Tu We Th Fr Sa
              1  2  3
  4  5  6  7  8  9 10
@@ -154,7 +154,7 @@ EOS
   def test_month_length_july
     output = `./cal.rb 07 2017`
     expected = <<EOS
-    July 2017
+     July 2017
 Su Mo Tu We Th Fr Sa
                    1
  2  3  4  5  6  7  8
@@ -183,7 +183,7 @@ EOS
   def test_month_length_september
     output = `./cal.rb 09 2017`
     expected = <<EOS
-    September 2017
+   September 2017
 Su Mo Tu We Th Fr Sa
                 1  2
  3  4  5  6  7  8  9
@@ -211,7 +211,7 @@ EOS
   def test_month_length_november
     output = `./cal.rb 11 2017`
     expected = <<EOS
-    November 2017
+   November 2017
 Su Mo Tu We Th Fr Sa
           1  2  3  4
  5  6  7  8  9 10 11
@@ -225,7 +225,7 @@ EOS
   def test_month_length_december
     output = `./cal.rb 12 2017`
     expected = <<EOS
-  December 2017
+   December 2017
 Su Mo Tu We Th Fr Sa
                 1  2
  3  4  5  6  7  8  9
@@ -256,7 +256,7 @@ EOS
   def test_input_max_date
     output = `./cal.rb 12 3000`
     expected = <<EOS
-  December 3000
+   December 3000
 Su Mo Tu We Th Fr Sa
     1  2  3  4  5  6
  7  8  9 10 11 12 13
