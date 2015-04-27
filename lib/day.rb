@@ -14,9 +14,9 @@ class Day
 
     m = @month
     y = @year
-    q = 1
+    first_day = 1
 
-    @day = (q + (((m + 1) * 26) / 10).floor + y + (y / 4).floor + 6 * (y / 100).floor + (y / 400).floor) % 7
-    @day
+    day = (first_day + (((m + 1) * 26) / 10).floor + y + (y / 4).floor + 6 * (y / 100).floor + (y / 400).floor) % 7
+    day
   end
 end

@@ -24,16 +24,20 @@ class Month
       12 => "December" }
     month_name[@month]
   end
+  
 
   def month_length
-    if @month == 2
-      month_length = 28
-    elsif @month == 4 or @month == 6 or @month == 9 or @month == 11
+    if month == 4 or month == 6 or month == 9 or month == 11
       month_length = 30
+    elsif month == 2 && (year % 4) != 0 || month == 2 && (year % 100) == 0 && (year % 400) != 0
+      month_length = 28
+    elsif month == 2 && (year % 400) == 0  && (year % 100) || month == 2 && (year % 4) == 0
+      month_length = 29
     else
       month_length = 31
     end
   end
+
 
   def days
     day = Day.new(month, year)
@@ -61,9 +65,9 @@ class Month
     week_5 = arr[28..34].join(" ")
     if day.start_day == 0 || day.start_day == 6
       week_6 = arr[35..36].join(" ")
-      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}"
+      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}".rstrip
     else
-      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}"
+      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}".rstrip
     end
   end
 

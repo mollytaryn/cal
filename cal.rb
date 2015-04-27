@@ -12,7 +12,7 @@ def input_error
   puts "Date not in acceptable format/range."
 end
 
-if args.empty? || month > 13 || year > 3000 || year < 1800 || month.to_s.length > 2
+if args.empty? || month > 13 || year > 3000 || year < 1800
   input_error
 else
   puts m.to_s

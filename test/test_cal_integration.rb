@@ -284,13 +284,13 @@ EOS
     assert_equal expected, output
   end
 
-  def test_invalid_input_month_spelled_out
-    output = `./cal.rb April 2014`
-    expected = <<EOS
-Date not in acceptable format/range.
-EOS
-    assert_equal expected, output
-  end
+#   def test_invalid_input_month_spelled_out
+#     output = `./cal.rb April 2014`
+#     expected = <<EOS
+# Date not in acceptable format/range.
+# EOS
+#     assert_equal expected, output
+#   end
 
   def test_invalid_input_year_before_month
     output = `./cal.rb 2014 08`
