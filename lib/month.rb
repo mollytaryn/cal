@@ -1,4 +1,5 @@
 require_relative 'day'
+require_relative 'year'
 
 class Month
   attr_reader :month, :year
@@ -24,20 +25,20 @@ class Month
       12 => "December" }
     month_name[@month]
   end
-  
+
 
   def month_length
+    year = Year.new(@year)
     if month == 4 or month == 6 or month == 9 or month == 11
       month_length = 30
-    elsif month == 2 && (year % 4) != 0 || month == 2 && (year % 100) == 0 && (year % 400) != 0
+    elsif month == 2 && year.leap_year == false
       month_length = 28
-    elsif month == 2 && (year % 400) == 0  && (year % 100) || month == 2 && (year % 4) == 0
+    elsif month == 2 && year.leap_year == true
       month_length = 29
     else
       month_length = 31
     end
   end
-
 
   def days
     day = Day.new(month, year)
