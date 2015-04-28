@@ -29,7 +29,7 @@ class Month
 
   def month_length
     year = Year.new(@year)
-    if month == 4 or month == 6 or month == 9 or month == 11
+    if month == 4 || month == 6 || month == 9 || month == 11
       month_length = 30
     elsif month == 2 && year.leap_year == false
       month_length = 28
@@ -44,6 +44,7 @@ class Month
     day = Day.new(month, year)
     days = (1..month_length)
     arr = days.to_a
+
     if day.start_day == 0
       arr.unshift("  ", "  ", "  ", "  ", "  ", "  ")
     elsif day.start_day == 2
@@ -64,12 +65,14 @@ class Month
     week_3 = arr[14..20].join(" ")
     week_4 = arr[21..27].join(" ")
     week_5 = arr[28..34].join(" ")
+
     if day.start_day == 0 || day.start_day == 6
       week_6 = arr[35..36].join(" ")
       string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}".rstrip
     else
       string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}".rstrip
     end
+
   end
 
   def header
