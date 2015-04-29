@@ -62,7 +62,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 29 30 31              26 27 28 29 30        24 25 26 27 28 29 30
                                             31
 EOS
-    assert_equal expected, y.leap_year
+    assert_equal expected, y.year_to_s
   end
 
   def test_leap_year_divisible_by_4
@@ -85,7 +85,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 11 12 13 14 15 16 17   9 10 11 12 13 14 15  13 14 15 16 17 18 19
 18 19 20 21 22 23 24  16 17 18 19 20 21 22  20 21 22 23 24 25 26
 25 26 27 28 29 30     23 24 25 26 27 28 29  27 28 29 30
-30 31
+                      30 31
 
         July                 August              September
 Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
@@ -104,7 +104,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 24 25 26 27 28 29 30  28 29 30              26 27 28 29 30 31
 31
 EOS
-    assert_equal expected, y.leap_year
+    assert_equal expected, y.year_to_s
   end
 
   def test_non_leap_year_century
@@ -146,7 +146,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 24 25 26 27 28 29 30  28 29 30              26 27 28 29 30 31
 31
 EOS
-    assert_equal expected, y.leap_year
+    assert_equal expected, y.year_to_s
   end
-  
+
 end
