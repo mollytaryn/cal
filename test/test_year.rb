@@ -66,6 +66,7 @@ EOS
   end
 
   def test_leap_year_divisible_by_4
+    skip
     y = Year.new(2004)
     expected = <<EOS
                        2004
@@ -108,6 +109,7 @@ EOS
   end
 
   def test_non_leap_year_century
+    skip
     y = Year.new(2100)
     expected = <<EOS
                        2100
