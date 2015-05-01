@@ -223,9 +223,9 @@ EOS
   end
 
   def test_month_length_december
-    output = `./cal.rb 12 2017`
+    output = `./cal.rb 12 2000`
     expected = <<EOS
-   December 2017
+   December 2000
 Su Mo Tu We Th Fr Sa
                 1  2
  3  4  5  6  7  8  9

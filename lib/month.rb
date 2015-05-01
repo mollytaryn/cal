@@ -30,9 +30,9 @@ class Month
     year = Year.new(@year)
     if month == 4 || month == 6 || month == 9 || month == 11
       month_length = 30
-    elsif month == 2 && year.leap_year == false
+    elsif month == 2 && !year.leap_year
       month_length = 28
-    elsif month == 2 && year.leap_year == true
+    elsif month == 2 && year.leap_year
       month_length = 29
     else
       month_length = 31
@@ -66,10 +66,10 @@ class Month
 
     if day.start_day == 0 || day.start_day == 6
       week_6 = arr[35..36].join(" ")
-      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}".rstrip
     else
-      string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}".rstrip
+      week_6 = " "
     end
+    string = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}".rstrip
   end
 
   def header
