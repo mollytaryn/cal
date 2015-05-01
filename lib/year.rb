@@ -15,7 +15,6 @@ class Year
     end
   end
 
-
   def quarter_1
     quarter_1_array = []
     jan = Month.new(1, @year)
@@ -36,10 +35,10 @@ class Year
     quarter_1_array << jan_arr << feb_arr << march_arr
     quarter_1 = quarter_1_array[0].zip(quarter_1_array[1], quarter_1_array[2])
 
-    week_1 = quarter_1[0].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_2 = quarter_1[1].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_3 = quarter_1[2].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_4 = quarter_1[3].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
+    week_1 = quarter_1[0].join("  ").rstrip
+    week_2 = quarter_1[1].join("  ").rstrip
+    week_3 = quarter_1[2].join("  ").rstrip
+    week_4 = quarter_1[3].join("  ").rstrip
     week_5 = quarter_1[4].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
     week_6 = quarter_1[5].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
 
@@ -66,10 +65,10 @@ class Year
     quarter_2_array << april_arr << may_arr << june_arr
     quarter_2 = quarter_2_array[0].zip(quarter_2_array[1], quarter_2_array[2])
 
-    week_1 = quarter_2[0].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_2 = quarter_2[1].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_3 = quarter_2[2].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_4 = quarter_2[3].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
+    week_1 = quarter_2[0].join("  ").rstrip
+    week_2 = quarter_2[1].join("  ").rstrip
+    week_3 = quarter_2[2].join("  ").rstrip
+    week_4 = quarter_2[3].join("  ").rstrip
     week_5 = quarter_2[4].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
     week_6 = quarter_2[5].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
 
@@ -96,10 +95,10 @@ class Year
     quarter_3_array << july_arr << aug_arr << sept_arr
     quarter_3 = quarter_3_array[0].zip(quarter_3_array[1], quarter_3_array[2])
 
-    week_1 = quarter_3[0].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_2 = quarter_3[1].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_3 = quarter_3[2].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_4 = quarter_3[3].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
+    week_1 = quarter_3[0].join("  ").rstrip
+    week_2 = quarter_3[1].join("  ").rstrip
+    week_3 = quarter_3[2].join("  ").rstrip
+    week_4 = quarter_3[3].join("  ").rstrip
     week_5 = quarter_3[4].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
     week_6 = quarter_3[5].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
 
@@ -126,17 +125,18 @@ class Year
     quarter_4_array << oct_arr << nov_arr << dec_arr
     quarter_4 = quarter_4_array[0].zip(quarter_4_array[1], quarter_4_array[2])
 
-    week_1 = quarter_4[0].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_2 = quarter_4[1].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_3 = quarter_4[2].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
-    week_4 = quarter_4[3].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
+    week_1 = quarter_4[0].join("  ").rstrip
+    week_2 = quarter_4[1].join("  ").rstrip
+    week_3 = quarter_4[2].join("  ").rstrip
+    week_4 = quarter_4[3].join("  ").rstrip
     week_5 = quarter_4[4].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
     week_6 = quarter_4[5].map{ |d| d.to_s.ljust(20) }.join("  ").rstrip
 
     quarter_4 = "#{week_1}\n#{week_2}\n#{week_3}\n#{week_4}\n#{week_5}\n#{week_6}".rstrip
   end
 
-  def year_to_s
+
+  def to_s
     <<EOS
                        #{year}
 

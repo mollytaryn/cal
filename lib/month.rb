@@ -64,7 +64,7 @@ class Month
     week_4 = arr[21..27].join(" ")
     week_5 = arr[28..34].join(" ")
 
-    if day.start_day == 0 || day.start_day == 6
+    if day.start_day == 0 && month != 2 || day.start_day == 6 && month != 2
       week_6 = arr[35..36].join(" ")
     else
       week_6 = " "
